@@ -24,12 +24,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserAuthenticationEntryPoint unauthorizedHandler;
+
     @Autowired
     private UserAuthInfoService userAuthInfoService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder builder) throws Exception {
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -51,10 +53,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         security.authorizeRequests()
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/"
-                ).permitAll()
+                .antMatchers(HttpMethod.GET, "/").permitAll()
+                .antMatchers("/resources/**").permitAll()
                 .anyRequest().authenticated();
 
         // 添加JWT filter
@@ -64,4 +64,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         security.headers().cacheControl();
     }
 }
+
+
 
