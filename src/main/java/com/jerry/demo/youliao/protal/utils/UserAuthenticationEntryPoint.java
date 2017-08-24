@@ -20,7 +20,12 @@ public class UserAuthenticationEntryPoint implements AuthenticationEntryPoint, S
                          AuthenticationException authException) throws IOException {
         // This is invoked when user tries to access a secured REST resource without supplying any credentials
         // We should just send a 401 Unauthorized response because there is no 'login page' to redirect to
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+        if (request.getMethod().toLowerCase().equals("get")) {
+            response.sendRedirect("/login");
+        } else {
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+        }
+
     }
 }
 

@@ -18,7 +18,7 @@
     <script src="//cdn.bootcss.com/zui/1.7.0/js/zui.min.js"></script>
 </head>
 <body>
-<#include "common/header.ftl">
+<#include "common/main-header.ftl">
 
 </body>
 </html>
