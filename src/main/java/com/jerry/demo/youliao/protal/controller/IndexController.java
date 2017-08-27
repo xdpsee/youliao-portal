@@ -14,13 +14,25 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping(value = "/login")
-    public String login(Map<String,Object> model){
-        return "login";
+    @GetMapping("/main")
+    public String main(Map<String,Object> model){
+
+        return "main";
     }
 
-    @GetMapping(value = "/signin")
-    public String signIn(Map<String,Object> model){
+    @GetMapping("/manage/device")
+    public String manageDevice(Map<String,Object> model){
+
+        return "device-manage";
+    }
+
+    @GetMapping(value = "/login")
+    public String login(Map<String,Object> model){
         return "signin";
+    }
+
+    @GetMapping(value = "/registry")
+    public String signIn(Map<String,Object> model){
+        return "signup";
     }
 }

@@ -12,13 +12,13 @@
 <body>
 
 <div class="layui-layout layui-layout-admin">
-    <#assign activeNav="living">
-    <#include "common/header-logged-in.ftl">
+<#assign activeNav="manage">
+<#include "common/header-logged-in.ftl">
 
     <div class="layui-side layui-bg-gray">
         <div class="layui-side-scroll">
             <!-- 左侧导航区 -->
-            <table class="layui-table" lay-data="{height:320, url:'/demo/table/user/', page:true, id:'test'}" lay-filter="test">
+            <table class="layui-table" lay-data="{height:600px, url:'/demo/table/user/', page:true, id:'test'}" lay-filter="test">
                 <thead>
                 <tr>
                     <th lay-data="{field:'id', width:80}">设备</th>
@@ -42,14 +42,8 @@
 </div>
 
 <script src="/resources/layui/layui.all.js"></script>
-<script src="http://webapi.amap.com/maps?v=1.3&key=3d633355bbd09a1690819f7dd3328d13&plugin=AMap.ToolBar"></script>
 <script type="text/javascript">
 
-    var map = new AMap.Map('container', {
-        center: [121.49908,31.239779],
-        zoom: 13
-    });
-    map.addControl(new AMap.ToolBar({liteStyle: true}));
 
 </script>
 
