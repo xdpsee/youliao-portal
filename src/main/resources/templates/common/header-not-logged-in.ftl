@@ -7,7 +7,7 @@
         </div>
         <div class="nav-user">
             <a class="unlogin" href="/login"><i class="iconfont icon-touxiang"></i></a>
-            <span><a href="/main">登入</a><a href="/registry">注册</a></span>
+            <span><a href="/login">登入</a><a href="/registry">注册</a></span>
             <p class="out-login">
                 <a href="http://fly.layui.com/app/qq"
                    onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})"

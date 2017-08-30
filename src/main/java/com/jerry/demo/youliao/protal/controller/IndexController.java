@@ -1,38 +1,26 @@
 package com.jerry.demo.youliao.protal.controller;
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Map;
 
 @Controller
 public class IndexController {
 
-    @GetMapping("/")
-    public String index(Map<String,Object> model){
-
-        return "index";
-    }
-
-    @GetMapping("/main")
-    public String main(Map<String,Object> model){
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "index";
+        }
 
         return "main";
     }
 
-    @GetMapping("/manage/device")
-    public String manageDevice(Map<String,Object> model){
-
-        return "device-manage";
-    }
-
-    @GetMapping(value = "/login")
-    public String login(Map<String,Object> model){
-        return "signin";
-    }
-
-    @GetMapping(value = "/registry")
-    public String signIn(Map<String,Object> model){
-        return "signup";
-    }
 }
