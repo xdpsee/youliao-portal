@@ -4,11 +4,15 @@
     <ul class="layui-nav layui-layout-left">
         <li></li>
     <#if activeNav == "living">
-        <li class="layui-nav-item layui-this"><a href="javascript:;">实时监控</a></li>
+        <li class="layui-nav-item layui-this"><a href="javascript:;">实时位置</a></li>
     <#else>
-        <li class="layui-nav-item"><a href="/">实时监控</a></li>
+        <li class="layui-nav-item"><a href="/">实时位置</a></li>
     </#if>
+    <#if activeNav == "history">
+        <li class="layui-nav-item layui-this"><a href="javascript:;">历史轨迹</a></li>
+    <#else>
         <li class="layui-nav-item"><a href="/history">历史轨迹</a></li>
+    </#if>
     <#if activeNav == "manage">
         <li class="layui-nav-item layui-this"><a href="javascript:;">设备管理</a></li>
     <#else>
